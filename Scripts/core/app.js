@@ -9,8 +9,8 @@
     var dice2;
     var Dice1Pic;
     var Dice2Pic;
-    var randomnumber1 = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-    var randomnumber2 = Math.floor(Math.random() * (5 - 1 + 2)) + 1;
+    // let randomnumber1 = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+    // let randomnumber2 = Math.floor(Math.random() * (5 - 1 + 2)) + 1;
     function Start() {
         appStarted = false;
         stage = new createjs.Stage(canvas);
@@ -31,11 +31,18 @@
         stage.addChild(dice2);
         RollButton = new objects.Button("Assets/images/rollButton.png", 300, 400, true, 50, 150);
         stage.addChild(RollButton);
-        RollButton.on("click", function (event) {
+        RollButton.addEventListener("click", function (event) {
+            function randomnumber1(min, max) {
+                return Math.floor(Math.random() * (6 - 1) + 1);
+            }
+            function randomnumber2(min, max) {
+                return Math.floor(Math.random() * (6 - 1) + 1);
+            }
             // event handler
-            dice1.text = randomnumber1;
-            dice2.text = randomnumber2;
-            switch (randomnumber1) {
+            dice1.text = randomnumber1();
+            dice2.text = randomnumber2();
+            // Display the pictures using switch case
+            switch (randomnumber1()) {
                 case 1:
                     Dice1Pic = new createjs.Bitmap("Assets/images/1.png");
                     Dice1Pic.x = 150;
@@ -79,7 +86,7 @@
                     stage.addChild(Dice1Pic);
                     break;
             }
-            switch (randomnumber2) {
+            switch (randomnumber2()) {
                 case 1:
                     Dice2Pic = new createjs.Bitmap("Assets/images/1.png");
                     Dice2Pic.x = 450;
