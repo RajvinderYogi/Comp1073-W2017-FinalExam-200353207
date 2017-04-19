@@ -1,3 +1,7 @@
+// Name- Rajvinder Singh Yogi
+// Student Number-200353207
+// file name- app.ts
+
 // IIFE - Immediately Invoked Function Expression
 (function () {
   let canvas: HTMLElement = document.getElementById("canvas");
